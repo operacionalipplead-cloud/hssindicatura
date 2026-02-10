@@ -15,8 +15,8 @@ const Header: React.FC = () => {
 
   const navLinks = [
     { name: 'Soluções', href: '#solutions' },
-    { name: 'O Gestor', href: '#authority' },
     { name: 'Resultados', href: '#results' },
+    { name: 'O Gestor', href: '#authority' },
     { name: 'Contato', href: '#contact' },
   ];
 
@@ -33,7 +33,7 @@ const Header: React.FC = () => {
            <img 
              src="https://painel.lipplead.com/wp-content/uploads/2026/02/462322ab-d987-4ccd-9eda-b3e53ce71e45-_2_-removebg-preview.webp" 
              alt="HS Sindicatura" 
-             className="h-12 md:h-14 w-auto object-contain"
+             className="h-16 md:h-24 w-auto object-contain transition-all duration-300"
            />
         </a>
 
@@ -50,7 +50,7 @@ const Header: React.FC = () => {
           ))}
           <a 
             href="#contact" 
-            className="px-6 py-2 border border-[#C9943C] text-[#C9943C] hover:bg-[#C9943C] hover:text-[#031926] text-sm font-bold transition-all rounded-sm uppercase"
+            className="relative px-6 py-2 bg-[#C9943C] text-[#031926] font-bold text-sm rounded transition-all duration-300 shadow-[0_0_15px_rgba(201,148,60,0.3)] hover:shadow-[0_0_25px_rgba(201,148,60,0.6)] hover:scale-105 hover:bg-[#ffb74d] uppercase tracking-wide"
           >
             Diagnóstico Gratuito
           </a>
@@ -80,7 +80,7 @@ const Header: React.FC = () => {
           ))}
           <a 
             href="#contact" 
-            className="px-6 py-3 bg-[#C9943C] text-[#031926] text-center font-bold rounded-sm"
+            className="px-6 py-3 bg-[#C9943C] text-[#031926] text-center font-bold rounded-sm shadow-[0_0_15px_rgba(201,148,60,0.3)]"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Diagnóstico Gratuito

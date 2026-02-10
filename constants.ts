@@ -21,8 +21,24 @@ export const GRAPH_DATA: FinancialData[] = [
 ];
 
 export const FOUNDER_STATS = [
-  { value: "+10", label: "Anos de Mercado" },
-  { value: "MBA", label: "Gestão Estratégica" },
-  { value: "100%", label: "Compliance" },
-  { value: "ISO", label: "Padrão de Qualidade" },
+  { 
+    value: "+10", 
+    label: "Anos de Mercado",
+    description: "Experiência de campo resolvendo desde crises financeiras a problemas estruturais complexos."
+  },
+  { 
+    value: "MBA", 
+    label: "Gestão Corporativa",
+    description: "Trazemos a eficiência das grandes empresas: decisões baseadas em dados, não em 'achismo'."
+  },
+  { 
+    value: "100%", 
+    label: "Compliance & Legal",
+    description: "Blindagem jurídica que protege o condomínio contra passivos trabalhistas e erros contratuais."
+  },
+  { 
+    value: "ISO", 
+    label: "Processos Padronizados",
+    description: "Metodologia auditável. A gestão não depende de uma pessoa, mas de processos organizados e constantes."
+  },
 ];

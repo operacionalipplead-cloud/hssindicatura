@@ -19,4 +19,5 @@ export interface FinancialData {
 export interface StatItem {
   value: string;
   label: string;
+  description?: string;
 }

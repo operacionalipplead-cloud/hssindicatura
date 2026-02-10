@@ -67,10 +67,13 @@ const AudienceCardsPremium: React.FC = () => {
         <div className="mt-16 text-center opacity-0 animate-[fadeIn_0.8s_ease-out_1s_forwards]">
             <a 
               href="#contact"
-              className="inline-flex items-center justify-center px-8 py-4 bg-[#C9943C] text-[#031926] font-bold text-lg rounded hover:bg-[#031926] hover:text-[#C9943C] transition-all duration-300 shadow-lg shadow-[#C9943C]/20 group"
+              className="group relative inline-flex items-center justify-center px-8 py-4 bg-[#C9943C] text-[#031926] font-bold text-lg rounded overflow-hidden transition-all duration-300 shadow-[0_4px_15px_rgba(201,148,60,0.3)] hover:shadow-[0_6px_25px_rgba(201,148,60,0.5)] hover:-translate-y-1"
             >
-              Agende um Diagnóstico Gratuito
-              <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <span className="absolute top-0 left-0 w-full h-full bg-white/30 -translate-x-full group-hover:translate-x-full transition-transform duration-700 skew-x-12"></span>
+              <span className="relative flex items-center">
+                Agende um Diagnóstico Gratuito
+                <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </span>
             </a>
         </div>
       </div>

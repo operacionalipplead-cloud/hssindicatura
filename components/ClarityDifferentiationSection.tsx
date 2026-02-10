@@ -145,8 +145,36 @@ const ClarityDifferentiationSection: React.FC = () => {
       
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24 relative z-10">
         
-        {/* Left Column: Content */}
-        <div>
+        {/* Left Column: Visual (Now displayed first on Large screens) */}
+        <div className="relative hidden lg:flex items-start justify-center pt-12 order-2 lg:order-1">
+           <div className="sticky top-32 w-full max-w-md aspect-square bg-[#031926] rounded-xl border border-[#A9A9A9]/20 flex flex-col shadow-2xl shadow-black/50 backdrop-blur-sm">
+              {/* Card Header/Controls */}
+              <div className="p-4 flex gap-2 border-b border-[#A9A9A9]/10 bg-[#020F18]/50 rounded-t-xl">
+                <div className="w-3 h-3 rounded-full border border-[#C9943C] bg-transparent"></div>
+                <div className="w-3 h-3 rounded-full bg-[#333333]"></div>
+                <div className="ml-auto text-[10px] text-[#333333] font-mono tracking-widest uppercase">
+                    Módulo {String(activeId).padStart(2, '0')}
+                </div>
+              </div>
+              
+              {/* Card Body */}
+              <div className="flex-1 flex items-center justify-center relative overflow-hidden group">
+                 {/* Glow effect */}
+                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-[#C9943C] opacity-[0.03] blur-[60px] rounded-full animate-pulse"></div>
+                 
+                 {/* Dynamic Wireframe */}
+                 <div className="relative z-10">
+                   <DynamicIllustration activeId={activeId} />
+                 </div>
+
+                 {/* Decorative grid lines */}
+                 <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none"></div>
+              </div>
+           </div>
+        </div>
+
+        {/* Right Column: Content (Now displayed second on Large screens) */}
+        <div className="order-1 lg:order-2">
           <div className="mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-[#F0F4F8] mb-2 font-primary">
               Clareza e <br />
@@ -209,40 +237,15 @@ const ClarityDifferentiationSection: React.FC = () => {
           <div className="mt-12">
             <a 
               href="#contact"
-              className="inline-flex items-center justify-center px-8 py-4 bg-[#C9943C] text-[#031926] font-bold text-lg rounded hover:bg-[#F0F4F8] hover:text-[#031926] transition-all duration-300 shadow-lg shadow-[#C9943C]/20 w-full md:w-auto group"
+              className="group relative inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-[#C9943C] to-[#E8B050] text-[#031926] font-bold text-lg rounded overflow-hidden transition-all duration-300 shadow-[0_0_20px_rgba(201,148,60,0.4)] hover:shadow-[0_0_30px_rgba(201,148,60,0.6)] hover:scale-105 w-full md:w-auto"
             >
-              Falar com um Especialista
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <span className="absolute top-0 left-0 w-full h-full bg-white/30 -translate-x-full group-hover:translate-x-full transition-transform duration-700 skew-x-12"></span>
+              <span className="relative flex items-center">
+                Falar com um Especialista
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </span>
             </a>
           </div>
-        </div>
-
-        {/* Right Column: Visual */}
-        <div className="relative hidden lg:flex items-start justify-center pt-12">
-           <div className="sticky top-32 w-full max-w-md aspect-square bg-[#031926] rounded-xl border border-[#A9A9A9]/20 flex flex-col shadow-2xl shadow-black/50 backdrop-blur-sm">
-              {/* Card Header/Controls */}
-              <div className="p-4 flex gap-2 border-b border-[#A9A9A9]/10 bg-[#020F18]/50 rounded-t-xl">
-                <div className="w-3 h-3 rounded-full border border-[#C9943C] bg-transparent"></div>
-                <div className="w-3 h-3 rounded-full bg-[#333333]"></div>
-                <div className="ml-auto text-[10px] text-[#333333] font-mono tracking-widest uppercase">
-                    Módulo {String(activeId).padStart(2, '0')}
-                </div>
-              </div>
-              
-              {/* Card Body */}
-              <div className="flex-1 flex items-center justify-center relative overflow-hidden group">
-                 {/* Glow effect */}
-                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-[#C9943C] opacity-[0.03] blur-[60px] rounded-full animate-pulse"></div>
-                 
-                 {/* Dynamic Wireframe */}
-                 <div className="relative z-10">
-                   <DynamicIllustration activeId={activeId} />
-                 </div>
-
-                 {/* Decorative grid lines */}
-                 <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none"></div>
-              </div>
-           </div>
         </div>
 
       </div>

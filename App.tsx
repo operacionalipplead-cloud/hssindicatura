@@ -6,7 +6,9 @@ import FounderBioSection from './components/FounderBioSection';
 import FinancialGraphSection from './components/FinancialGraphSection';
 import TestimonialsWaterfall from './components/TestimonialsWaterfall';
 import ClarityDifferentiationSection from './components/ClarityDifferentiationSection';
+import ContactSection from './components/ContactSection';
 import FooterCorporate from './components/FooterCorporate';
+import FloatingWhatsAppButton from './components/FloatingWhatsAppButton';
 
 function App() {
   return (
@@ -14,12 +16,27 @@ function App() {
       <Header />
       <main>
         <HeroCinematicHS />
+        
+        {/* Step 1: Segmentation - Who is this for? */}
         <AudienceCardsPremium />
-        <FounderBioSection />
+        
+        {/* Step 2: The Hook - Hard Results */}
         <FinancialGraphSection />
-        <TestimonialsWaterfall />
+
+        {/* Step 3: The Authority - Who guarantees this? */}
+        <FounderBioSection />
+
+        {/* Step 4: The 'How' - Methodology (Moved below Authority) */}
         <ClarityDifferentiationSection />
+        
+        {/* Step 5: Social Proof */}
+        <TestimonialsWaterfall />
+        
+        {/* Step 6: Conversion */}
+        <ContactSection />
       </main>
+      
+      <FloatingWhatsAppButton />
       <FooterCorporate />
     </div>
   );

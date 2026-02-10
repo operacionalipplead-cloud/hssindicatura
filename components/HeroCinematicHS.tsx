@@ -103,7 +103,7 @@ const HeroCinematicHS: React.FC = () => {
       {/* Background Image Layer */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="https://painel.lipplead.com/wp-content/uploads/2026/02/Gemini_Generated_Image_jfxyu7jfxyu7jfxy-scaled.webp" 
+          src="https://painel.lipplead.com/wp-content/uploads/2026/02/Gemini_Generated_Image_hsj3h0hsj3h0hsj3-1-_1_.webp" 
           alt="HS Sindicatura Background" 
           className="w-full h-full object-cover"
         />
@@ -136,10 +136,13 @@ const HeroCinematicHS: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-4">
             <a 
               href="#contact"
-              className="group relative inline-flex items-center justify-center px-8 py-4 bg-[#C9943C] text-[#031926] font-bold text-lg rounded hover:bg-[#F0F4F8] hover:text-[#031926] transition-all duration-300 shadow-lg shadow-[#C9943C]/20"
+              className="group relative inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-[#C9943C] to-[#E8B050] text-[#031926] font-bold text-lg rounded overflow-hidden transition-all duration-300 shadow-[0_0_20px_rgba(201,148,60,0.4)] hover:shadow-[0_0_40px_rgba(201,148,60,0.6)] hover:scale-105"
             >
-              Solicitar Proposta
-              <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <span className="absolute top-0 left-0 w-full h-full bg-white/30 -translate-x-full group-hover:translate-x-full transition-transform duration-700 skew-x-12"></span>
+              <span className="relative flex items-center">
+                Solicitar Proposta
+                <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </span>
             </a>
             <a 
               href="#authority"
