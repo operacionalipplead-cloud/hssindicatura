@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Plus, Minus, ArrowRight } from 'lucide-react';
-import { COLORS } from '../constants';
 
 const features = [
   { id: 1, title: 'Organização', description: 'Gestão técnica e profissional com processos definidos e auditáveis para garantir a ordem administrativa.' },
@@ -13,239 +12,120 @@ const features = [
   { id: 8, title: 'Comunicação', description: 'Transparência absoluta através de canais digitais e relatórios gerenciais claros.' },
 ];
 
-const DynamicIllustration = ({ activeId }: { activeId: number }) => {
-  const [visibleId, setVisibleId] = useState(activeId);
-  const [opacity, setOpacity] = useState(1);
+interface FeatureItemProps {
+  feature: typeof features[0];
+  isActive: boolean;
+  onToggle: () => void;
+}
 
-  useEffect(() => {
-    if (activeId !== visibleId) {
-      setOpacity(0);
-      const timer = setTimeout(() => {
-        setVisibleId(activeId);
-        setOpacity(1);
-      }, 300);
-      return () => clearTimeout(timer);
-    }
-  }, [activeId, visibleId]);
-
-  const renderPath = (id: number) => {
-    switch(id) {
-      case 1: // Organização (Layers)
-        return (
-          <>
-            <path d="M50 140 L150 140 L180 110 L80 110 Z" fill="none" stroke="currentColor" strokeWidth="1.5" />
-            <path d="M50 100 L150 100 L180 70 L80 70 Z" fill="none" stroke="currentColor" strokeWidth="1.5" />
-            <path d="M50 60 L150 60 L180 30 L80 30 Z" fill="none" stroke="currentColor" strokeWidth="1.5" />
-            <line x1="50" y1="140" x2="50" y2="60" stroke="currentColor" strokeDasharray="4 4" opacity="0.4" />
-            <line x1="150" y1="140" x2="150" y2="60" stroke="currentColor" strokeDasharray="4 4" opacity="0.4" />
-            <line x1="180" y1="110" x2="180" y2="30" stroke="currentColor" strokeDasharray="4 4" opacity="0.4" />
-          </>
-        );
-      case 2: // Saúde Financeira (Chart)
-        return (
-          <>
-             <rect x="40" y="130" width="30" height="50" fill="none" stroke="currentColor" strokeWidth="1.5" />
-             <rect x="85" y="90" width="30" height="90" fill="none" stroke="currentColor" strokeWidth="1.5" />
-             <rect x="130" y="50" width="30" height="130" fill="none" stroke="currentColor" strokeWidth="1.5" />
-             <path d="M30 180 L170 180" stroke="currentColor" opacity="0.6" />
-             <path d="M30 130 L170 50" stroke="currentColor" strokeDasharray="5 5" opacity="0.4" />
-          </>
-        );
-      case 3: // Conflitos (Balance/Intersect)
-        return (
-          <>
-            <circle cx="80" cy="100" r="50" fill="none" stroke="currentColor" strokeWidth="1.5" opacity="0.8" />
-            <circle cx="120" cy="100" r="50" fill="none" stroke="currentColor" strokeWidth="1.5" opacity="0.8" />
-            <path d="M100 40 V160" stroke="currentColor" strokeDasharray="4 4" opacity="0.4" />
-            <circle cx="100" cy="100" r="4" fill="currentColor" />
-          </>
-        );
-      case 4: // Estratégia (Path/Target)
-        return (
-          <>
-            <path d="M40 160 L80 120 L120 140 L160 40" fill="none" stroke="currentColor" strokeWidth="2" />
-            <circle cx="40" cy="160" r="4" fill="currentColor" />
-            <circle cx="80" cy="120" r="4" fill="currentColor" />
-            <circle cx="120" cy="140" r="4" fill="currentColor" />
-            <circle cx="160" cy="40" r="6" stroke="currentColor" fill="none" />
-            <circle cx="160" cy="40" r="2" fill="currentColor" />
-          </>
-        );
-      case 5: // Valorização (Diamond/Structure)
-        return (
-          <>
-            <path d="M100 20 L170 90 L100 180 L30 90 Z" fill="none" stroke="currentColor" strokeWidth="1.5" />
-            <path d="M30 90 L170 90" stroke="currentColor" strokeWidth="1" opacity="0.6" />
-            <path d="M100 20 L100 180" stroke="currentColor" strokeWidth="1" opacity="0.6" />
-            <path d="M65 55 L135 55" stroke="currentColor" strokeWidth="1" opacity="0.4" />
-            <path d="M65 135 L135 135" stroke="currentColor" strokeWidth="1" opacity="0.4" />
-          </>
-        );
-      case 6: // Segurança Jurídica (Shield)
-        return (
-          <>
-             <path d="M100 30 L160 60 V100 C160 145 100 180 100 180 C100 180 40 145 40 100 V60 L100 30 Z" fill="none" stroke="currentColor" strokeWidth="1.5" />
-             <path d="M100 30 V180" stroke="currentColor" opacity="0.3" />
-             <path d="M40 100 H160" stroke="currentColor" opacity="0.3" />
-             <rect x="85" y="85" width="30" height="40" stroke="currentColor" fill="none" />
-          </>
-        );
-      case 7: // Gestão de Contratos (Document)
-        return (
-          <>
-            <rect x="50" y="30" width="100" height="140" rx="4" fill="none" stroke="currentColor" strokeWidth="1.5" />
-            <line x1="70" y1="60" x2="130" y2="60" stroke="currentColor" strokeWidth="1" />
-            <line x1="70" y1="90" x2="130" y2="90" stroke="currentColor" strokeWidth="1" />
-            <line x1="70" y1="120" x2="110" y2="120" stroke="currentColor" strokeWidth="1" />
-            <path d="M120 130 L140 150 L160 110" stroke="currentColor" strokeWidth="1.5" fill="none" transform="translate(-20, 10)" />
-          </>
-        );
-      case 8: // Comunicação (Network/Connect)
-        return (
-          <>
-             <circle cx="100" cy="50" r="12" fill="none" stroke="currentColor" strokeWidth="1.5" />
-             <circle cx="40" cy="150" r="12" fill="none" stroke="currentColor" strokeWidth="1.5" />
-             <circle cx="160" cy="150" r="12" fill="none" stroke="currentColor" strokeWidth="1.5" />
-             <line x1="100" y1="62" x2="40" y2="138" stroke="currentColor" strokeWidth="1" />
-             <line x1="100" y1="62" x2="160" y2="138" stroke="currentColor" strokeWidth="1" />
-             <line x1="40" y1="150" x2="160" y2="150" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" />
-          </>
-        );
-      default:
-        return null;
-    }
-  };
-
+const FeatureItem: React.FC<FeatureItemProps> = ({ feature, isActive, onToggle }) => {
   return (
-    <svg 
-      viewBox="0 0 200 200" 
-      className="w-48 h-48 md:w-64 md:h-64 text-[#C9943C] transition-all duration-300 ease-in-out"
-      style={{ opacity: opacity, transform: `scale(${opacity === 0 ? 0.95 : 1})` }}
+    <div 
+      className={`border-b border-[#333333] transition-all duration-500 ${isActive ? 'pb-6 pt-6 bg-[#333333]/10 -mx-4 px-4 rounded-sm' : 'py-4'}`}
     >
-      <defs>
-        <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-          <feGaussianBlur stdDeviation="2" result="blur" />
-          <feComposite in="SourceGraphic" in2="blur" operator="over" />
-        </filter>
-      </defs>
-      <g filter="url(#glow)">
-        {renderPath(visibleId)}
-      </g>
-    </svg>
+      <button 
+        onClick={onToggle}
+        className="w-full flex items-center justify-between group text-left focus:outline-none"
+      >
+        <div className="flex items-center gap-6">
+          <span className={`text-xs font-bold font-mono transition-colors duration-300 ${isActive ? 'text-white' : 'text-[#333333]'}`}>
+            {String(feature.id).padStart(2, '0')}
+          </span>
+          <span className={`text-lg md:text-xl font-medium font-primary transition-colors duration-300 ${isActive ? 'text-[#F0F4F8]' : 'text-[#A9A9A9] group-hover:text-[#F0F4F8]'}`}>
+            {feature.title}
+          </span>
+        </div>
+        <div className={`transition-transform duration-300 ${isActive ? 'rotate-180' : 'rotate-0'}`}>
+          {isActive ? (
+            <Minus className="text-white w-4 h-4" />
+          ) : (
+            <Plus className="text-[#333333] group-hover:text-white w-4 h-4 transition-colors" />
+          )}
+        </div>
+      </button>
+      
+      <div 
+        className={`grid transition-all duration-500 ease-in-out overflow-hidden ${
+          isActive ? 'grid-rows-[1fr] opacity-100 mt-4' : 'grid-rows-[0fr] opacity-0'
+        }`}
+      >
+        <div className="overflow-hidden pl-10 md:pl-12">
+          <p className="text-[#A9A9A9] leading-relaxed mb-4 text-sm md:text-base">
+            {feature.description}
+          </p>
+        </div>
+      </div>
+    </div>
   );
 };
 
 const ClarityDifferentiationSection: React.FC = () => {
-  const [activeId, setActiveId] = useState<number>(1);
+  const [activeId, setActiveId] = useState<number | null>(1);
+
+  const toggleItem = (id: number) => {
+    setActiveId(activeId === id ? null : id);
+  };
+
+  const leftFeatures = features.slice(0, 4);
+  const rightFeatures = features.slice(4, 8);
 
   return (
     <section className="bg-[#031926] py-24 px-6 md:px-12 border-t border-[#A9A9A9]/10 relative overflow-hidden">
       {/* Background Gradients for depth */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-[#000000]/20 to-transparent pointer-events-none" />
       
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24 relative z-10">
+      <div className="max-w-7xl mx-auto relative z-10">
         
-        {/* Left Column: Visual (Now displayed first on Large screens) */}
-        <div className="relative hidden lg:flex items-start justify-center pt-12 order-2 lg:order-1">
-           <div className="sticky top-32 w-full max-w-md aspect-square bg-[#031926] rounded-xl border border-[#A9A9A9]/20 flex flex-col shadow-2xl shadow-black/50 backdrop-blur-sm">
-              {/* Card Header/Controls */}
-              <div className="p-4 flex gap-2 border-b border-[#A9A9A9]/10 bg-[#020F18]/50 rounded-t-xl">
-                <div className="w-3 h-3 rounded-full border border-[#C9943C] bg-transparent"></div>
-                <div className="w-3 h-3 rounded-full bg-[#333333]"></div>
-                <div className="ml-auto text-[10px] text-[#333333] font-mono tracking-widest uppercase">
-                    Módulo {String(activeId).padStart(2, '0')}
-                </div>
-              </div>
-              
-              {/* Card Body */}
-              <div className="flex-1 flex items-center justify-center relative overflow-hidden group">
-                 {/* Glow effect */}
-                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-[#C9943C] opacity-[0.03] blur-[60px] rounded-full animate-pulse"></div>
-                 
-                 {/* Dynamic Wireframe */}
-                 <div className="relative z-10">
-                   <DynamicIllustration activeId={activeId} />
-                 </div>
-
-                 {/* Decorative grid lines */}
-                 <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none"></div>
-              </div>
-           </div>
+        {/* Header - Centered */}
+        <div className="mb-16 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#F0F4F8] mb-4 font-primary">
+            Clareza e <span className="italic font-light text-[#F0F4F8]/70">Diferenciação</span>
+          </h2>
+          <div className="w-24 h-1 bg-[#F0F4F8]/20 mx-auto rounded-full mb-6"></div>
+          <p className="text-[#A9A9A9] text-lg max-w-2xl mx-auto">
+            Soluções completas para condomínios que não aceitam o "mais do mesmo".
+            Entenda nossos pilares de atuação.
+          </p>
         </div>
 
-        {/* Right Column: Content (Now displayed second on Large screens) */}
-        <div className="order-1 lg:order-2">
-          <div className="mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-[#F0F4F8] mb-2 font-primary">
-              Clareza e <br />
-              <span className="italic font-light text-[#C9943C]">Diferenciação</span>
-            </h2>
-            <p className="text-[#A9A9A9] text-sm md:text-base mt-4 max-w-md border-l-2 border-[#C9943C] pl-4">
-              Soluções completas para condomínios que não aceitam o "mais do mesmo".
-            </p>
-          </div>
-
+        {/* Two Column Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-4">
+          {/* Left Column (1-4) */}
           <div className="space-y-0">
-            {features.map((feature) => {
-              const isActive = activeId === feature.id;
-              return (
-                <div 
-                  key={feature.id} 
-                  className={`border-b border-[#333333] transition-all duration-500 ${isActive ? 'pb-6 pt-6 bg-[#333333]/10 -mx-4 px-4 rounded-sm' : 'py-4'}`}
-                >
-                  <button 
-                    onClick={() => setActiveId(feature.id)}
-                    className="w-full flex items-center justify-between group text-left focus:outline-none"
-                  >
-                    <div className="flex items-center gap-6">
-                      <span className={`text-xs font-bold font-mono transition-colors duration-300 ${isActive ? 'text-[#C9943C]' : 'text-[#333333]'}`}>
-                        {String(feature.id).padStart(2, '0')}
-                      </span>
-                      <span className={`text-xl md:text-2xl font-medium font-primary transition-colors duration-300 ${isActive ? 'text-[#F0F4F8]' : 'text-[#A9A9A9] group-hover:text-[#F0F4F8]'}`}>
-                        {feature.title}
-                      </span>
-                    </div>
-                    <div className={`transition-transform duration-300 ${isActive ? 'rotate-180' : 'rotate-0'}`}>
-                      {isActive ? (
-                        <Minus className="text-[#C9943C] w-4 h-4" />
-                      ) : (
-                        <Plus className="text-[#333333] group-hover:text-[#C9943C] w-4 h-4 transition-colors" />
-                      )}
-                    </div>
-                  </button>
-                  
-                  <div 
-                    className={`grid transition-all duration-500 ease-in-out overflow-hidden ${
-                      isActive ? 'grid-rows-[1fr] opacity-100 mt-4' : 'grid-rows-[0fr] opacity-0'
-                    }`}
-                  >
-                    <div className="overflow-hidden pl-10 md:pl-12">
-                      <p className="text-[#A9A9A9] leading-relaxed mb-4 text-sm md:text-base">
-                        {feature.description}
-                      </p>
-                      <div className="flex items-center gap-2 text-[#C9943C] text-xs font-bold tracking-widest uppercase">
-                        <div className="w-6 h-[1px] bg-[#C9943C]"></div>
-                        HS Padrão
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
+             {leftFeatures.map((feature) => (
+               <FeatureItem 
+                 key={feature.id} 
+                 feature={feature} 
+                 isActive={activeId === feature.id}
+                 onToggle={() => toggleItem(feature.id)}
+               />
+             ))}
           </div>
 
-          <div className="mt-12">
-            <a 
-              href="#contact"
-              className="group relative inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-[#C9943C] to-[#E8B050] text-[#031926] font-bold text-lg rounded overflow-hidden transition-all duration-300 shadow-[0_0_20px_rgba(201,148,60,0.4)] hover:shadow-[0_0_30px_rgba(201,148,60,0.6)] hover:scale-105 w-full md:w-auto"
-            >
-              <span className="absolute top-0 left-0 w-full h-full bg-white/30 -translate-x-full group-hover:translate-x-full transition-transform duration-700 skew-x-12"></span>
-              <span className="relative flex items-center">
-                Falar com um Especialista
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </span>
-            </a>
+          {/* Right Column (5-8) */}
+          <div className="space-y-0">
+             {rightFeatures.map((feature) => (
+               <FeatureItem 
+                 key={feature.id} 
+                 feature={feature} 
+                 isActive={activeId === feature.id}
+                 onToggle={() => toggleItem(feature.id)}
+               />
+             ))}
           </div>
+        </div>
+
+        {/* CTA - Centered */}
+        <div className="mt-16 text-center">
+          <a 
+            href="#contact"
+            className="group relative inline-flex items-center justify-center px-8 py-4 bg-white text-[#031926] font-bold text-lg rounded overflow-hidden transition-all duration-300 shadow-lg hover:shadow-white/20 hover:scale-105 w-full md:w-auto"
+          >
+            <span className="relative flex items-center">
+              Falar com um Especialista
+              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </span>
+          </a>
         </div>
 
       </div>

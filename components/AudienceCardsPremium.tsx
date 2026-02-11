@@ -4,11 +4,12 @@ import { SegmentationCardProps } from '../types';
 
 const Card: React.FC<SegmentationCardProps & { delay: string }> = ({ icon: Icon, title, description, delay }) => (
   <div 
-    className={`group relative bg-[#F8FAFC] p-8 md:p-10 border border-[#E2E8F0] hover:border-[#C9943C] transition-all duration-500 rounded-xl hover:shadow-xl hover:shadow-[#031926]/5 flex flex-col items-start h-full opacity-0 animate-[fadeIn_0.8s_ease-out_forwards] hover:-translate-y-2`}
+    className={`group relative bg-[#F8FAFC] p-8 md:p-10 border border-[#E2E8F0] hover:border-[#031926]/30 transition-all duration-500 rounded-xl hover:shadow-xl hover:shadow-[#031926]/5 flex flex-col items-start h-full opacity-0 animate-[fadeIn_0.8s_ease-out_forwards] hover:-translate-y-2`}
     style={{ animationDelay: delay }}
   >
+    {/* Neutral Icon Container */}
     <div className="mb-6 p-4 bg-white rounded-full shadow-sm border border-[#E2E8F0] group-hover:bg-[#031926] transition-colors duration-300">
-      <Icon className="w-8 h-8 text-[#031926] group-hover:text-[#C9943C] transition-colors duration-300" />
+      <Icon className="w-8 h-8 text-[#031926] group-hover:text-white transition-colors duration-300" />
     </div>
     <h3 className="text-2xl font-bold text-[#031926] mb-4 font-primary">
       {title}
@@ -17,8 +18,8 @@ const Card: React.FC<SegmentationCardProps & { delay: string }> = ({ icon: Icon,
       {description}
     </p>
     
-    {/* Decorative hover line */}
-    <div className="absolute bottom-0 left-0 w-0 h-1 bg-[#C9943C] transition-all duration-500 group-hover:w-full rounded-b-xl" />
+    {/* Decorative hover line - Neutral Dark Blue */}
+    <div className="absolute bottom-0 left-0 w-0 h-1 bg-[#031926] transition-all duration-500 group-hover:w-full rounded-b-xl" />
   </div>
 );
 
@@ -48,7 +49,8 @@ const AudienceCardsPremium: React.FC = () => {
           <h2 className="text-3xl md:text-5xl font-bold text-[#031926] mb-6 font-primary">
             Soluções Personalizadas
           </h2>
-          <div className="w-24 h-1 bg-[#C9943C] mx-auto rounded-full"></div>
+          {/* Neutral Divider */}
+          <div className="w-24 h-1 bg-[#031926]/20 mx-auto rounded-full"></div>
           <p className="mt-6 text-[#333333] text-lg max-w-2xl mx-auto leading-relaxed">
             Estratégias desenhadas para atender as necessidades específicas de cada pilar da vida condominial.
           </p>
@@ -65,11 +67,11 @@ const AudienceCardsPremium: React.FC = () => {
         </div>
 
         <div className="mt-16 text-center opacity-0 animate-[fadeIn_0.8s_ease-out_1s_forwards]">
+            {/* Neutral Dark Button */}
             <a 
               href="#contact"
-              className="group relative inline-flex items-center justify-center px-8 py-4 bg-[#C9943C] text-[#031926] font-bold text-lg rounded overflow-hidden transition-all duration-300 shadow-[0_4px_15px_rgba(201,148,60,0.3)] hover:shadow-[0_6px_25px_rgba(201,148,60,0.5)] hover:-translate-y-1"
+              className="group relative inline-flex items-center justify-center px-8 py-4 bg-[#031926] text-white font-bold text-lg rounded overflow-hidden transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-[#031926]/20 hover:-translate-y-1"
             >
-              <span className="absolute top-0 left-0 w-full h-full bg-white/30 -translate-x-full group-hover:translate-x-full transition-transform duration-700 skew-x-12"></span>
               <span className="relative flex items-center">
                 Agende um Diagnóstico Gratuito
                 <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />

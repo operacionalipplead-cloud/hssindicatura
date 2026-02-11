@@ -28,13 +28,11 @@ const Header: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         
-        {/* Logo */}
-        <a href="#hero" className="block">
-           <img 
-             src="https://painel.lipplead.com/wp-content/uploads/2026/02/462322ab-d987-4ccd-9eda-b3e53ce71e45-_2_-removebg-preview.webp" 
-             alt="HS Sindicatura" 
-             className="h-16 md:h-24 w-auto object-contain transition-all duration-300"
-           />
+        {/* Logo - Text Version */}
+        <a href="#hero" className="block group">
+           <span className="text-2xl md:text-3xl font-bold text-[#F0F4F8] tracking-wide group-hover:text-white transition-colors" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+             HS Sindicatura
+           </span>
         </a>
 
         {/* Desktop Nav */}
@@ -43,14 +41,14 @@ const Header: React.FC = () => {
             <a 
               key={link.name} 
               href={link.href} 
-              className="text-[#F0F4F8] hover:text-[#C9943C] text-sm font-medium transition-colors uppercase tracking-wide"
+              className="text-[#F0F4F8] hover:text-white text-sm font-medium transition-colors uppercase tracking-wide opacity-80 hover:opacity-100"
             >
               {link.name}
             </a>
           ))}
           <a 
             href="#contact" 
-            className="relative px-6 py-2 bg-[#C9943C] text-[#031926] font-bold text-sm rounded transition-all duration-300 shadow-[0_0_15px_rgba(201,148,60,0.3)] hover:shadow-[0_0_25px_rgba(201,148,60,0.6)] hover:scale-105 hover:bg-[#ffb74d] uppercase tracking-wide"
+            className="relative px-6 py-2 border border-[#F0F4F8]/30 text-[#F0F4F8] font-medium text-sm rounded transition-all duration-300 hover:bg-[#F0F4F8] hover:text-[#031926] hover:border-transparent uppercase tracking-wide"
           >
             Diagnóstico Gratuito
           </a>
@@ -72,7 +70,7 @@ const Header: React.FC = () => {
             <a 
               key={link.name} 
               href={link.href} 
-              className="text-[#F0F4F8] hover:text-[#C9943C] text-lg font-medium"
+              className="text-[#F0F4F8] hover:text-white text-lg font-medium"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {link.name}
@@ -80,7 +78,7 @@ const Header: React.FC = () => {
           ))}
           <a 
             href="#contact" 
-            className="px-6 py-3 bg-[#C9943C] text-[#031926] text-center font-bold rounded-sm shadow-[0_0_15px_rgba(201,148,60,0.3)]"
+            className="px-6 py-3 border border-[#F0F4F8]/30 text-[#F0F4F8] text-center font-bold rounded-sm hover:bg-[#F0F4F8] hover:text-[#031926]"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Diagnóstico Gratuito

@@ -9,7 +9,7 @@ const FloatingWhatsAppButton: React.FC = () => {
       </div>
 
       <a
-        href="https://wa.me/5511933825442"
+        href="https://wa.me/5511933825442?text=Ol%C3%A1%2C%20estava%20no%20seu%20site%20e%20gostaria%20de%20saber%20mais"
         target="_blank"
         rel="noopener noreferrer"
         className="group relative flex items-center justify-center w-14 h-14 md:w-16 md:h-16 bg-[#25D366] rounded-full shadow-xl shadow-[#25D366]/30 hover:bg-[#1ebc51] hover:scale-110 transition-all duration-300"

@@ -20,6 +20,21 @@ export const GRAPH_DATA: FinancialData[] = [
   { month: 'Set', value: 307000 },
 ];
 
+export const EXPENSE_DATA: FinancialData[] = [
+  { month: "JAN", value: 113737.65 },
+  { month: "FEV", value: 189006.23 },
+  { month: "MAR", value: 109122.54 },
+  { month: "ABR", value: 127281.23 },
+  { month: "MAI", value: 109500.87 },
+  { month: "JUN", value: 99869.45 },
+  { month: "JUL", value: 104226.27 },
+  { month: "AGO", value: 111469.00 },
+  { month: "SET", value: 105018.77 },
+  { month: "OUT", value: 108656.23 },
+  { month: "NOV", value: 96633.00 },
+  { month: "DEZ", value: 83593.06 }
+];
+
 export const FOUNDER_STATS = [
   { 
     value: "+10", 
@@ -27,8 +42,8 @@ export const FOUNDER_STATS = [
     description: "Experiência de campo resolvendo desde crises financeiras a problemas estruturais complexos."
   },
   { 
-    value: "MBA", 
-    label: "Gestão Corporativa",
+    value: "Gestão", 
+    label: "Estratégica",
     description: "Trazemos a eficiência das grandes empresas: decisões baseadas em dados, não em 'achismo'."
   },
   { 
@@ -37,8 +52,8 @@ export const FOUNDER_STATS = [
     description: "Blindagem jurídica que protege o condomínio contra passivos trabalhistas e erros contratuais."
   },
   { 
-    value: "ISO", 
-    label: "Processos Padronizados",
+    value: "Excelência", 
+    label: "De Resultados",
     description: "Metodologia auditável. A gestão não depende de uma pessoa, mas de processos organizados e constantes."
   },
 ];
