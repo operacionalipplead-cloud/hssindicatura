@@ -14,19 +14,19 @@ const HeroCinematicHS: React.FC = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 px-6 md:px-12 max-w-7xl mx-auto w-full pt-20 flex justify-end">
-        <div className="max-w-4xl opacity-0 animate-[fadeUp_1s_ease-out_forwards] bg-[#031926]/60 backdrop-blur-md p-8 md:p-12 rounded-3xl border border-white/10 shadow-2xl">
+      <div className="relative z-10 px-6 md:px-12 max-w-7xl mx-auto w-full pt-20 flex justify-center md:justify-end">
+        <div className="max-w-4xl opacity-0 animate-[fadeUp_1s_ease-out_forwards] bg-[#031926]/60 backdrop-blur-md p-8 md:p-12 rounded-3xl border border-white/10 shadow-2xl text-center md:text-left">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-[#F0F4F8] leading-tight mb-6 font-primary drop-shadow-lg shadow-black">
             HS Sindicatura:<br />
             Gestão que Protege <br />
             <span className="text-[#F0F4F8]">Seu Patrimônio.</span>
           </h1>
-          <p className="text-[#F0F4F8] text-lg md:text-xl max-w-2xl mb-10 font-light leading-relaxed drop-shadow-lg shadow-black">
+          <p className="text-[#F0F4F8] text-lg md:text-xl max-w-2xl mb-10 font-light leading-relaxed drop-shadow-lg shadow-black mx-auto md:mx-0">
             Soluções de alta performance para Condomínios e Administradoras. 
             Rigor jurídico, compliance e a solidez que seu empreendimento exige.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
             {/* Neutral White Button */}
             <a 
               href="#contact"
