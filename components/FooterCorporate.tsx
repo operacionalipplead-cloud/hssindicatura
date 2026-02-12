@@ -20,20 +20,6 @@ const FooterCorporate: React.FC = () => {
             <p className="text-sm leading-relaxed max-w-sm mb-6">
               Elevando o padrão da gestão condominial. Segurança jurídica, transparência financeira e valorização patrimonial para quem exige excelência.
             </p>
-            <div className="flex items-center gap-4">
-               {/* Minimalist Instagram Logo with Brand Colors */}
-               <a 
-                 href="https://www.instagram.com/hssindicatura" 
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 className="group hover:scale-110 transition-transform duration-300"
-                 aria-label="Siga-nos no Instagram"
-               >
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] flex items-center justify-center shadow-lg shadow-[#dc2743]/20">
-                    <Instagram size={28} className="text-white" />
-                  </div>
-               </a>
-            </div>
           </div>
 
           {/* Quick Links */}
@@ -64,6 +50,24 @@ const FooterCorporate: React.FC = () => {
                 <span>São Paulo, SP</span>
               </li>
             </ul>
+
+            {/* Social Media - Harmonized */}
+            <div className="mt-6 flex items-center justify-start">
+               <a 
+                 href="https://www.instagram.com/hssindicatura" 
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 className="group flex items-center gap-3 transition-all duration-300"
+                 aria-label="Siga-nos no Instagram"
+               >
+                  <div className="w-10 h-10 rounded-lg border border-[#333333] bg-[#333333]/30 flex items-center justify-center group-hover:border-[#C9943C] group-hover:bg-[#C9943C] transition-all duration-300 shadow-sm">
+                    <Instagram size={20} className="text-[#F0F4F8] group-hover:text-[#031926] transition-colors" />
+                  </div>
+                  <span className="text-sm font-medium text-[#A9A9A9] group-hover:text-[#C9943C] transition-colors">
+                    @hssindicatura
+                  </span>
+               </a>
+            </div>
           </div>
         </div>
 

@@ -48,10 +48,11 @@ const FinancialGraphSection: React.FC = () => {
 
         <div className="max-w-7xl mx-auto relative z-10">
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          {/* Changed grid from cols-2 to cols-12 to allow asymmetrical split (4 cols text / 8 cols graph) */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
-            {/* LEFT COLUMN: Text Content & Stats */}
-            <div className="flex flex-col items-start text-left">
+            {/* LEFT COLUMN: Text Content & Stats - Takes 4/12 (approx 33%) */}
+            <div className="lg:col-span-4 flex flex-col items-start text-left">
               <div className="flex items-center gap-2 mb-6">
                 <span className="text-[#A9A9A9] uppercase tracking-widest text-xs font-bold">{current.tag}</span>
                 <Icon className="text-[#F0F4F8] w-5 h-5" />
@@ -61,7 +62,7 @@ const FinancialGraphSection: React.FC = () => {
                 {current.title}
               </h2>
               
-              <p className="text-[#A9A9A9] text-lg leading-relaxed mb-8 max-w-lg min-h-[84px]">
+              <p className="text-[#A9A9A9] text-lg leading-relaxed mb-8 min-h-[84px]">
                 {current.description}
               </p>
 
@@ -118,8 +119,8 @@ const FinancialGraphSection: React.FC = () => {
               </p>
             </div>
 
-            {/* RIGHT COLUMN: Graph Container */}
-            <div className="w-full h-[400px] md:h-[500px] bg-[#333333]/30 backdrop-blur-md border border-[#A9A9A9]/10 rounded-xl p-4 md:p-6 shadow-2xl relative group transition-all duration-500">
+            {/* RIGHT COLUMN: Graph Container - Takes 8/12 (approx 67%) */}
+            <div className="lg:col-span-8 w-full h-[400px] md:h-[500px] bg-[#333333]/30 backdrop-blur-md border border-[#A9A9A9]/10 rounded-xl p-4 md:p-6 shadow-2xl relative group transition-all duration-500">
               {/* Header inside graph card */}
               <div className="absolute top-6 left-6 z-10 pointer-events-none">
                  <p className="text-[#F0F4F8] font-bold text-sm flex items-center gap-2">
